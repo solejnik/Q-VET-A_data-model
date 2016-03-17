@@ -14,7 +14,7 @@ public class CabinetEntity {
 	@Column(nullable = false, length = 255)
 	private String name;
 	@Column(nullable = false, length = 50)
-	private ClientEntity city;
+	private CityEntity city;
 
 	public Long getId() {
 		return id;
@@ -32,11 +32,11 @@ public class CabinetEntity {
 		this.name = name;
 	}
 
-	public ClientEntity getCity() {
+	public CityEntity getCity() {
 		return city;
 	}
 
-	public void setCity(ClientEntity city) {
+	public void setCity(CityEntity city) {
 		this.city = city;
 	}
 
@@ -52,17 +52,17 @@ public class CabinetEntity {
 		this.name = name;
 	}
 
-	public CabinetEntity(Long id, ClientEntity city) {
+	public CabinetEntity(Long id, CityEntity city) {
 		this.id = id;
 		this.city = city;
 	}
 
-	public CabinetEntity(String name, ClientEntity city) {
+	public CabinetEntity(String name, CityEntity city) {
 		this.name = name;
 		this.city = city;
 	}
 
-	public CabinetEntity(Long id, String name, ClientEntity city) {
+	public CabinetEntity(Long id, String name, CityEntity city) {
 		this.id = id;
 		this.name = name;
 		this.city = city;

@@ -7,21 +7,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class ClinicEntity {
+public class PetTypeEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column(nullable = false)
 	private String name;
-	@Column(nullable = false)
-	private CityEntity city;
 
-	public ClinicEntity() {
+	public PetTypeEntity() {
 	}
 
-	public ClinicEntity(String name, CityEntity city) {
+	public PetTypeEntity(String name) {
+		super();
 		this.name = name;
-		this.city = city;
 	}
 
 	public Long getId() {
@@ -38,14 +36,6 @@ public class ClinicEntity {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public CityEntity getCity() {
-		return city;
-	}
-
-	public void setCity(CityEntity city) {
-		this.city = city;
 	}
 
 }
