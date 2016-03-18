@@ -1,7 +1,7 @@
 package com.capgemini.solejnik.qveta.enums;
 
 public enum VisitStatusEnum {
-	FINITE("FINITE"), CANCALLED("CANCALLED");
+	REGISTERED("REGISTERED"), CANCALLED("CANCALLED"), FINISHED("FINISHED");
 
 	private String status;
 

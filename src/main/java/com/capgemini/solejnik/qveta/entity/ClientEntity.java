@@ -16,7 +16,9 @@ public class ClientEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@Column(nullable = false)
 	private String firstName;
+	@Column(nullable = false)
 	private String lastName;
 	@Column(nullable = false)
 	private String email;
@@ -73,6 +75,14 @@ public class ClientEntity {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Set<PetEntity> getPets() {
+		return pets;
+	}
+
+	public void setPets(Set<PetEntity> pets) {
+		this.pets = pets;
 	}
 
 }

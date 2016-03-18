@@ -30,9 +30,9 @@ public class VisitEntity {
 	}
 
 	public VisitEntity(CallEntity call, PetEntity pet) {
-		super();
 		this.call = call;
 		this.pet = pet;
+		this.status = VisitStatusEnum.REGISTERED;
 	}
 
 	public Long getId() {

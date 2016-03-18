@@ -1,16 +1,15 @@
 package com.capgemini.solejnik.qveta.to;
 
-public class ClinicTo {
+public class PetTypeTo {
 	private Long id;
 	private String name;
-	private CityTo city;
 
-	public ClinicTo() {
+	public PetTypeTo() {
 	}
 
-	public ClinicTo(String name, CityTo city) {
+	public PetTypeTo(String name) {
+		super();
 		this.name = name;
-		this.city = city;
 	}
 
 	public Long getId() {
@@ -27,14 +26,6 @@ public class ClinicTo {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public CityTo getCity() {
-		return city;
-	}
-
-	public void setCity(CityTo city) {
-		this.city = city;
 	}
 
 }

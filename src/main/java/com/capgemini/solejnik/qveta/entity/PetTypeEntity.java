@@ -18,7 +18,6 @@ public class PetTypeEntity {
 	}
 
 	public PetTypeEntity(String name) {
-		super();
 		this.name = name;
 	}
 

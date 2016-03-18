@@ -1,39 +1,21 @@
-package com.capgemini.solejnik.qveta.entity;
+package com.capgemini.solejnik.qveta.to;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-
-@Entity
-public class DoctorEntity {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+public class DoctorTo {
 	private Long id;
-	@Column(nullable = false)
 	private String firstName;
-	@Column(nullable = false)
 	private String lastName;
-	@Column(nullable = false)
 	private String email;
-	@Column(nullable = false)
 	private String password;
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private Set<PetTypeEntity> specialties = new HashSet<PetTypeEntity>();
+	private Set<PetTypeTo> specialties = new HashSet<PetTypeTo>();
 
-	public DoctorEntity() {
+	public DoctorTo() {
 	}
 
-	public DoctorEntity(String firstName, String lastName, String email, String password,
-			Set<PetTypeEntity> specialties) {
+	public DoctorTo(String firstName, String lastName, String email, String password, Set<PetTypeTo> specialties) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -81,11 +63,11 @@ public class DoctorEntity {
 		this.password = password;
 	}
 
-	public Set<PetTypeEntity> getSpecialties() {
+	public Set<PetTypeTo> getSpecialties() {
 		return specialties;
 	}
 
-	public void setSpecialties(Set<PetTypeEntity> specialties) {
+	public void setSpecialties(Set<PetTypeTo> specialties) {
 		this.specialties = specialties;
 	}
 

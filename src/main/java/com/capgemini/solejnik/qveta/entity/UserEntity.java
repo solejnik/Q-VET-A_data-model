@@ -1,19 +1,15 @@
 package com.capgemini.solejnik.qveta.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+
+import com.capgemini.solejnik.qveta.enums.RoleEnum;
 
 @Entity
-public class DoctorEntity {
+public class UserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -22,23 +18,26 @@ public class DoctorEntity {
 	@Column(nullable = false)
 	private String lastName;
 	@Column(nullable = false)
+	private CityEntity city;
+	@Column(nullable = false)
+	private RoleEnum role;
+
+	@Column(nullable = false)
 	private String email;
 	@Column(nullable = false)
 	private String password;
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private Set<PetTypeEntity> specialties = new HashSet<PetTypeEntity>();
-
-	public DoctorEntity() {
+	public UserEntity() {
 	}
 
-	public DoctorEntity(String firstName, String lastName, String email, String password,
-			Set<PetTypeEntity> specialties) {
+	public UserEntity(String firstName, String lastName, CityEntity city, String email, String password,
+			RoleEnum role) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.city = city;
 		this.email = email;
 		this.password = password;
-		this.specialties = specialties;
+		this.role = role;
 	}
 
 	public Long getId() {
@@ -65,6 +64,14 @@ public class DoctorEntity {
 		this.lastName = lastName;
 	}
 
+	public CityEntity getCity() {
+		return city;
+	}
+
+	public void setCity(CityEntity city) {
+		this.city = city;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -81,12 +88,12 @@ public class DoctorEntity {
 		this.password = password;
 	}
 
-	public Set<PetTypeEntity> getSpecialties() {
-		return specialties;
+	public RoleEnum getRole() {
+		return role;
 	}
 
-	public void setSpecialties(Set<PetTypeEntity> specialties) {
-		this.specialties = specialties;
+	public void setRole(RoleEnum role) {
+		this.role = role;
 	}
 
 }

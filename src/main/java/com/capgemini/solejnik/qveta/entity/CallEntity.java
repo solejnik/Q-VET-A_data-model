@@ -22,18 +22,17 @@ public class CallEntity {
 	@Column(nullable = false)
 	private CityEntity city;
 	@Column(nullable = false)
-	private ClinicEntity clinic;
+	private CabinetEntity cabinet;
 
 	public CallEntity() {
 	}
 
-	public CallEntity(Long id, Date timeFrom, Date timeTo, DoctorEntity doctor, CityEntity city, ClinicEntity clinic) {
-		this.id = id;
+	public CallEntity(Date timeFrom, Date timeTo, DoctorEntity doctor, CityEntity city, CabinetEntity cabinet) {
 		this.timeFrom = timeFrom;
 		this.timeTo = timeTo;
 		this.doctor = doctor;
 		this.city = city;
-		this.clinic = clinic;
+		this.cabinet = cabinet;
 	}
 
 	public Long getId() {
@@ -76,12 +75,12 @@ public class CallEntity {
 		this.city = city;
 	}
 
-	public ClinicEntity getClinic() {
-		return clinic;
+	public CabinetEntity getCabinet() {
+		return cabinet;
 	}
 
-	public void setClinic(ClinicEntity clinic) {
-		this.clinic = clinic;
+	public void setCabinet(CabinetEntity cabinet) {
+		this.cabinet = cabinet;
 	}
 
 }

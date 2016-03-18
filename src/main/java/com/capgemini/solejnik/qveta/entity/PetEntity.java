@@ -1,5 +1,7 @@
 package com.capgemini.solejnik.qveta.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,6 +18,8 @@ public class PetEntity {
 	private String name;
 	@Column(nullable = false)
 	private PetTypeEntity type;
+	@Column(nullable = false)
+	private Date bornDate;
 	@ManyToOne
 	private ClinicEntity owner;
 

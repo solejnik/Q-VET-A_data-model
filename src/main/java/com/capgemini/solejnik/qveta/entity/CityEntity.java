@@ -17,8 +17,7 @@ public class CityEntity {
 	public CityEntity() {
 	}
 
-	public CityEntity(Long id, String name) {
-		this.id = id;
+	public CityEntity(String name) {
 		this.name = name;
 	}
 

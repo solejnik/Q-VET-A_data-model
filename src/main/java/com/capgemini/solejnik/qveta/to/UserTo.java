@@ -1,24 +1,27 @@
 package com.capgemini.solejnik.qveta.to;
 
-import java.util.HashSet;
-import java.util.Set;
+import com.capgemini.solejnik.qveta.enums.RoleEnum;
 
-public class ClientTo {
+public class UserTo {
 	private Long id;
 	private String firstName;
 	private String lastName;
+	private CityTo city;
+	private RoleEnum role;
+
 	private String email;
 	private String password;
 
-	private Set<PetTo> pets = new HashSet<PetTo>();
-
-	public ClientTo() {
+	public UserTo() {
 	}
 
-	public ClientTo(String email, String password, Set<PetTo> pets) {
+	public UserTo(String firstName, String lastName, CityTo city, String email, String password, RoleEnum role) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.city = city;
 		this.email = email;
 		this.password = password;
-		this.pets = pets;
+		this.role = role;
 	}
 
 	public Long getId() {
@@ -45,6 +48,14 @@ public class ClientTo {
 		this.lastName = lastName;
 	}
 
+	public CityTo getCity() {
+		return city;
+	}
+
+	public void setCity(CityTo city) {
+		this.city = city;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -61,12 +72,12 @@ public class ClientTo {
 		this.password = password;
 	}
 
-	public Set<PetTo> getPets() {
-		return pets;
+	public RoleEnum getRole() {
+		return role;
 	}
 
-	public void setPets(Set<PetTo> pets) {
-		this.pets = pets;
+	public void setRole(RoleEnum role) {
+		this.role = role;
 	}
 
 }
