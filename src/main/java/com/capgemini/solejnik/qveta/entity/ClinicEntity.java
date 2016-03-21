@@ -10,18 +10,22 @@ import javax.persistence.Id;
 public class ClinicEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	// adres
 	private Long id;
 	@Column(nullable = false)
 	private String name;
 	@Column(nullable = false)
 	private CityEntity city;
+	@Column(nullable = false)
+	private String address;
 
 	public ClinicEntity() {
 	}
 
-	public ClinicEntity(String name, CityEntity city) {
+	public ClinicEntity(String name, CityEntity city, String address) {
 		this.name = name;
 		this.city = city;
+		this.address = address;
 	}
 
 	public Long getId() {
@@ -46,6 +50,14 @@ public class ClinicEntity {
 
 	public void setCity(CityEntity city) {
 		this.city = city;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 }

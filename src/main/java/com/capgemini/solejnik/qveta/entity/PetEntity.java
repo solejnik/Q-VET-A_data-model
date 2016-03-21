@@ -21,12 +21,13 @@ public class PetEntity {
 	@Column(nullable = false)
 	private Date bornDate;
 	@ManyToOne
-	private ClinicEntity owner;
+	// client
+	private UserEntity owner;
 
 	public PetEntity() {
 	}
 
-	public PetEntity(String name, PetTypeEntity type, ClinicEntity owner) {
+	public PetEntity(String name, PetTypeEntity type, UserEntity owner) {
 		this.name = name;
 		this.type = type;
 		this.owner = owner;
@@ -56,11 +57,11 @@ public class PetEntity {
 		this.type = type;
 	}
 
-	public ClinicEntity getOwner() {
+	public UserEntity getOwner() {
 		return owner;
 	}
 
-	public void setOwner(ClinicEntity owner) {
+	public void setOwner(UserEntity owner) {
 		this.owner = owner;
 	}
 

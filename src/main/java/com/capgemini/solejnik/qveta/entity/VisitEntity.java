@@ -20,8 +20,7 @@ public class VisitEntity {
 	private PetEntity pet;
 	@Column(nullable = false)
 	private Date beginTime;
-	@Column(nullable = false)
-	private Date endTine;
+
 	private String recognition;
 	private String courseOfTreatment;
 	private VisitStatusEnum status;
@@ -65,14 +64,6 @@ public class VisitEntity {
 
 	public void setBeginTime(Date beginTime) {
 		this.beginTime = beginTime;
-	}
-
-	public Date getEndTine() {
-		return endTine;
-	}
-
-	public void setEndTine(Date endTine) {
-		this.endTine = endTine;
 	}
 
 	public String getRecognition() {

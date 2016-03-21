@@ -18,16 +18,16 @@ public class CallEntity {
 	@Column(nullable = false)
 	private Date timeTo;
 	@Column(nullable = false)
-	private DoctorEntity doctor;
+	private UserEntity doctor;
 	@Column(nullable = false)
-	private CityEntity city;
+	private CityEntity city;//turtaj md4
 	@Column(nullable = false)
 	private CabinetEntity cabinet;
 
 	public CallEntity() {
 	}
 
-	public CallEntity(Date timeFrom, Date timeTo, DoctorEntity doctor, CityEntity city, CabinetEntity cabinet) {
+	public CallEntity(Date timeFrom, Date timeTo, UserEntity doctor, CityEntity city, CabinetEntity cabinet) {
 		this.timeFrom = timeFrom;
 		this.timeTo = timeTo;
 		this.doctor = doctor;
@@ -59,11 +59,11 @@ public class CallEntity {
 		this.timeTo = timeTo;
 	}
 
-	public DoctorEntity getDoctor() {
+	public UserEntity getDoctor() {
 		return doctor;
 	}
 
-	public void setDoctor(DoctorEntity doctor) {
+	public void setDoctor(UserEntity doctor) {
 		this.doctor = doctor;
 	}
 
