@@ -1,12 +1,16 @@
 package com.capgemini.solejnik.qveta.entity;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class CallEntity {
@@ -17,21 +21,20 @@ public class CallEntity {
 	private Date timeFrom;
 	@Column(nullable = false)
 	private Date timeTo;
-	@Column(nullable = false)
+	@ManyToOne
 	private UserEntity doctor;
-	@Column(nullable = false)
-	private CityEntity city;//turtaj md4
-	@Column(nullable = false)
+	@ManyToOne
 	private CabinetEntity cabinet;
+	@OneToMany(mappedBy = "call")
+	private Set<VisitEntity> visits = new HashSet<VisitEntity>();
 
 	public CallEntity() {
 	}
 
-	public CallEntity(Date timeFrom, Date timeTo, UserEntity doctor, CityEntity city, CabinetEntity cabinet) {
+	public CallEntity(Date timeFrom, Date timeTo, UserEntity doctor, CabinetEntity cabinet) {
 		this.timeFrom = timeFrom;
 		this.timeTo = timeTo;
 		this.doctor = doctor;
-		this.city = city;
 		this.cabinet = cabinet;
 	}
 
@@ -67,20 +70,20 @@ public class CallEntity {
 		this.doctor = doctor;
 	}
 
-	public CityEntity getCity() {
-		return city;
-	}
-
-	public void setCity(CityEntity city) {
-		this.city = city;
-	}
-
 	public CabinetEntity getCabinet() {
 		return cabinet;
 	}
 
 	public void setCabinet(CabinetEntity cabinet) {
 		this.cabinet = cabinet;
+	}
+
+	public Set<VisitEntity> getVisits() {
+		return visits;
+	}
+
+	public void setVisits(Set<VisitEntity> visits) {
+		this.visits = visits;
 	}
 
 }

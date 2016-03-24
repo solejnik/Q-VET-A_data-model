@@ -1,10 +1,15 @@
 package com.capgemini.solejnik.qveta.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class ClinicEntity {
@@ -15,9 +20,11 @@ public class ClinicEntity {
 	@Column(nullable = false)
 	private String name;
 	@Column(nullable = false)
-	private CityEntity city;
-	@Column(nullable = false)
 	private String address;
+	@ManyToOne
+	private CityEntity city;
+	@OneToMany(mappedBy = "clinic")
+	private Set<CabinetEntity> cabinets = new HashSet<CabinetEntity>();
 
 	public ClinicEntity() {
 	}
@@ -58,6 +65,14 @@ public class ClinicEntity {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public Set<CabinetEntity> getCabinets() {
+		return cabinets;
+	}
+
+	public void setCabinets(Set<CabinetEntity> cabinets) {
+		this.cabinets = cabinets;
 	}
 
 }

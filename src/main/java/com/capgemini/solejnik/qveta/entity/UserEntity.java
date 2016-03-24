@@ -18,8 +18,6 @@ public class UserEntity {
 	@Column(nullable = false)
 	private String lastName;
 	@Column(nullable = false)
-	private CityEntity city;
-	@Column(nullable = false)
 	private RoleEnum role;
 
 	@Column(nullable = false)
@@ -30,11 +28,10 @@ public class UserEntity {
 	public UserEntity() {
 	}
 
-	public UserEntity(String firstName, String lastName, CityEntity city, String email, String password,
+	public UserEntity(String firstName, String lastName, String email, String password,
 			RoleEnum role) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.city = city;
 		this.email = email;
 		this.password = password;
 		this.role = role;
@@ -62,14 +59,6 @@ public class UserEntity {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-
-	public CityEntity getCity() {
-		return city;
-	}
-
-	public void setCity(CityEntity city) {
-		this.city = city;
 	}
 
 	public String getEmail() {

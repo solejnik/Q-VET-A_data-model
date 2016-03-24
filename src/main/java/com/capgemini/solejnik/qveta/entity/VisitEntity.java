@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import com.capgemini.solejnik.qveta.enums.VisitStatusEnum;
 
@@ -15,8 +16,9 @@ public class VisitEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(nullable = false)
+	@ManyToOne
 	private CallEntity call;
+	@ManyToOne
 	private PetEntity pet;
 	@Column(nullable = false)
 	private Date beginTime;
@@ -88,6 +90,10 @@ public class VisitEntity {
 
 	public void setStatus(String status) {
 		this.status = VisitStatusEnum.getVisitStatusEnum(status);
+	}
+
+	public void setStatus(VisitStatusEnum status) {
+		this.status = status;
 	}
 
 }
